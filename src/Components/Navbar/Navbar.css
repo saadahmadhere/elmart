@@ -1,0 +1,26 @@
+.logo {
+  margin-right: var(--size-2);
+}
+
+.logo_text {
+  font-size: var(--size-10);
+  font-style: italic;
+}
+
+.icon_badge .btn .badge {
+  height: var(--size-5);
+  width: var(--size-5);
+  top: -20%;
+  right: 0;
+}
+
+@media only screen and (min-width: 49rem) {
+  .navbar_links .material-icons {
+    font-size: var(--size-7);
+  }
+
+  .navbar_links {
+    width: 20%;
+    justify-content: space-around;
+  }
+}
