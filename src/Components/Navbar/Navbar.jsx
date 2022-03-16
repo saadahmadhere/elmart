@@ -4,7 +4,7 @@ import "./Navbar.css";
 const Navbar = () => {
   return (
     <nav className="navbar flex">
-      <div className>
+      <div className="logo">
         <Link to="/">
           <h1 className="h1 logo_text txt_boldest">Elmart</h1>
         </Link>
