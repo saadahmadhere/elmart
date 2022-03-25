@@ -19,7 +19,7 @@ const Navbar = () => {
           <span className="material-icons outlined">search</span>
         </button>
       </div>
-      <ul className="navbar_links flex">
+      <ul className="navbar_links flex list_style_none">
         <li>
           <Link to="/login" className="btn btn_primary btn_logout btn_sm">
             Login
