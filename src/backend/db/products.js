@@ -10,7 +10,6 @@ export const products = [
     _id: uuid(),
     name: "Boat Air Dopes",
     image:
-      // https://drive.google.com/uc?export=view&id=132cLoMt9OzjVD9T7em1vkrnJ8Co-uHXW
       "https://drive.google.com/uc?export=view&id=132cLoMt9OzjVD9T7em1vkrnJ8Co-uHXW",
     price: "1200.00",
     brand: "Boat",
