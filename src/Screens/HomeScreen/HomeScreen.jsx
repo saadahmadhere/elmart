@@ -1,4 +1,4 @@
-import Navbar from "../Components/Navbar/Navbar";
+import { Navbar } from "../../Components/Navbar/Navbar";
 
 const HomeScreen = () => {
   return (
@@ -8,4 +8,4 @@ const HomeScreen = () => {
   );
 };
 
-export default HomeScreen;
+export { HomeScreen };
