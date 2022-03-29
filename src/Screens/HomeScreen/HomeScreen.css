@@ -1,0 +1,32 @@
+.home_banner {
+  background: url(https://drive.google.com/uc?export=view&id=1XjJMXc6tGx7uSUy2VkyVxNS4PciAXKEZ)
+    center center / 100% 100% no-repeat;
+  min-height: 40vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--size-6);
+}
+
+.home_banner .btn_cta {
+  background-color: #ff5733;
+  color: #fff;
+}
+
+.home_offer {
+  font-size: var(--size-12);
+  color: #ff5733;
+  font-weight: 700;
+}
+
+@media only screen and (min-width: 30rem) {
+  .home_banner {
+    min-height: 35vh;
+  }
+
+  .home_offer {
+    font-size: var(--size-16);
+  }
+}
