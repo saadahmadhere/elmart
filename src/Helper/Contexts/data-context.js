@@ -7,6 +7,10 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "PRODUCTS":
       return { ...state, products: action.payload };
+
+    case "CATEGORIES":
+      return { ...state, categories: action.payload };
+
     default:
       return state;
   }
