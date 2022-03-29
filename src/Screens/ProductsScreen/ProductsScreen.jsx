@@ -27,7 +27,6 @@ const ProductScreen = () => {
     if (products.length === 0) fetchData();
   }, []);
 
-  console.log(products);
   return (
     <>
       <Navbar />
