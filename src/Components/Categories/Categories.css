@@ -1,0 +1,6 @@
+.categories .hr,
+.new_arrivals .hr {
+  border: none;
+  border-top: var(--size-2) solid var(--primary-color);
+  width: 15%;
+}
