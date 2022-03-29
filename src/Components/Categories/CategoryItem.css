@@ -1,0 +1,44 @@
+.category_items,
+.new_items {
+  margin-top: var(--size-8);
+  flex-wrap: wrap;
+  gap: var(--size-8);
+  justify-content: center;
+}
+
+.category_product {
+  position: relative;
+  border-radius: var(--size-2);
+  height: 12.5rem;
+  width: 12.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.category_product .overlay {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(234, 234, 236, 0.6);
+  transition: 0.5s;
+}
+
+.category_product .overlay:hover {
+  transform: scale(1.15);
+  cursor: pointer;
+}
+
+.category_product__image {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  text-align: center;
+}
+
+.overlay .h3 {
+  color: var(--gray-100);
+}
