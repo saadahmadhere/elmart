@@ -6,7 +6,7 @@ const Navbar = () => {
     <nav className="navbar flex">
       <div className="logo">
         <Link to="/">
-          <h1 className="h1 logo_text txt_boldest">Elmart</h1>
+          <div className=" logo_text txt_boldest">elmart</div>
         </Link>
       </div>
       <div className="navbar_search flex">

@@ -1,0 +1,21 @@
+#footer {
+  background-color: var(--gray-300);
+  align-items: center;
+  justify-content: space-evenly;
+  height: 20vh;
+  color: var(--gray-800);
+}
+
+.footer_social {
+  width: 15%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.footer_social > * {
+  margin-left: var(--size-3);
+}
+
+.footer_social > *:hover {
+  color: var(--alert-primary);
+}

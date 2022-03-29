@@ -5,27 +5,28 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 const ProductScreen = () => {
-  const [loader, setLoader] = useState(true);
+  const [loader, setLoader] = useState(false);
   const {
     state: { products },
     dispatch,
   } = useData();
 
+  const fetchData = async () => {
+    try {
+      setLoader(true);
+      const productsData = await axios.get("/api/products");
+      dispatch({ type: "PRODUCTS", payload: productsData.data.products });
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoader(false);
+    }
+  };
+
   useEffect(() => {
-    (async () => {
-      try {
-        const productsData = await axios.get("/api/products");
-        dispatch({ type: "PRODUCTS", payload: productsData.data.products });
-      } catch (err) {
-        console.log(err);
-      } finally {
-        setLoader(false);
-      }
-    })();
+    if (products.length === 0) fetchData();
   }, []);
 
-  console.log(`loader: ${loader}`);
-  console.log(products);
   return (
     <>
       <Navbar />
