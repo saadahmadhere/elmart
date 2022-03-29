@@ -3,7 +3,8 @@
 }
 
 .logo_text {
-  font-size: var(--size-10);
+  font-size: var(--size-11);
+  font-family: "Lato", sans-serif;
   font-style: italic;
 }
 
