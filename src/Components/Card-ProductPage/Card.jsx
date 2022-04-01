@@ -8,8 +8,6 @@ const Card = ({ product }) => {
     dispatch,
   } = useData();
 
-  console.log(cart);
-
   const addToCartHandler = (product) => {
     dispatch({ type: "ADD_TO_CART", payload: product });
     console.log(product);

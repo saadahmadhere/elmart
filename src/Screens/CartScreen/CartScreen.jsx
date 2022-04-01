@@ -11,8 +11,6 @@ const CartScreen = () => {
     dispatch,
   } = useData();
 
-  console.log(cart);
-
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {

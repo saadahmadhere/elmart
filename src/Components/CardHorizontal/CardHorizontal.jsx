@@ -8,7 +8,6 @@ const CardHorizontal = ({ product }) => {
   } = useData();
 
   const itemQuantityHandler = (e, product) => {
-    console.log(e.target.value, product);
     dispatch({
       type: "CHANGE_ITEM_QUANTITY",
       payload: { id: product.id, qty: e.target.value },
@@ -17,9 +16,7 @@ const CardHorizontal = ({ product }) => {
 
   const removeCartItemHandler = (_id) => {
     dispatch({ type: "REMOVE_FROM_CART", payload: _id });
-    console.log(_id);
   };
-  console.log(cart);
 
   return (
     <div className="card card_horizontal mb_4 mx_auto">
