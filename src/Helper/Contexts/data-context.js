@@ -11,12 +11,30 @@ const reducer = (state, action) => {
     case "CATEGORIES":
       return { ...state, categories: action.payload };
 
+    case "ADD_TO_CART":
+      return { ...state, cart: [...state.cart, { ...action.payload, qty: 1 }] };
+
+    case "CHANGE_ITEM_QUANTITY":
+      return {
+        ...state,
+        cart: state.cart.filter((cartItem) =>
+          cartItem.id === action.payload.id
+            ? (cartItem.qty = +action.payload.qty)
+            : +cartItem.qty
+        ),
+      };
+
+    case "REMOVE_FROM_CART":
+      return {
+        ...state,
+        cart: state.cart.filter((cartItem) => cartItem._id !== action.payload),
+      };
     default:
       return state;
   }
 };
 
-const initialState = { products: [], categories: [] };
+const initialState = { products: [], categories: [], cart: [] };
 
 const ProductDataProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);

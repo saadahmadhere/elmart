@@ -1,6 +1,19 @@
 import { Rating } from "./Rating";
+import { useData } from "../../Helper";
+import { Link } from "react-router-dom";
 
 const Card = ({ product }) => {
+  const {
+    state: { cart },
+    dispatch,
+  } = useData();
+
+  const addToCartHandler = (product) => {
+    dispatch({ type: "ADD_TO_CART", payload: product });
+    console.log(product);
+  };
+
+  const isPresentInCart = cart.find((cartItem) => cartItem._id === product._id);
   return (
     <div className={`card card_w_badge ${!product.inStock && "card_overlay"}`}>
       <div className="container_top">
@@ -34,12 +47,21 @@ const Card = ({ product }) => {
       </div>
       <div className="container_bottom">
         <div className="action_buttons">
-          <button
-            onClick={() => addToCartHandler(product)}
-            className="btn btn_primary btn_sm">
-            <span className="material-icons outlined ">add_shopping_cart</span>
-            Add to Cart
-          </button>
+          {!isPresentInCart ? (
+            <button
+              onClick={() => addToCartHandler(product)}
+              className="btn btn_primary btn_sm">
+              <span className="material-icons outlined">add_shopping_cart</span>
+              Add to Cart
+            </button>
+          ) : (
+            <Link to="/cart" className="btn btn_primary btn_sm">
+              <span className="material-icons outlined icon">
+                add_shopping_cart
+              </span>
+              Go to Cart
+            </Link>
+          )}
         </div>
 
         <div className="action_icons">

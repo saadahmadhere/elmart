@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import { useData } from "../../Helper";
 
 const Navbar = () => {
+  const {
+    state: { cart },
+  } = useData();
+
   return (
     <nav className="navbar flex">
       <div className="logo">
@@ -21,7 +26,7 @@ const Navbar = () => {
       </div>
       <ul className="navbar_links flex list_style_none">
         <li>
-          <Link to="/login" className="btn btn_primary btn_logout btn_sm">
+          <Link to="/login" className="btn btn_primary btn_sm">
             Login
           </Link>
         </li>
@@ -43,7 +48,7 @@ const Navbar = () => {
           <div className="icon_badge">
             <Link to="/cart" className="btn">
               <span className="material-icons outlined">shopping_cart</span>
-              <div className="badge badge_red md">2</div>
+              <div className="badge badge_red md">{cart.length}</div>
             </Link>
           </div>
         </li>

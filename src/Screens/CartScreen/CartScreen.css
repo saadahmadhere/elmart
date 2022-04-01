@@ -1,0 +1,37 @@
+.content {
+  padding: var(--size-6);
+}
+
+.main {
+  margin: var(--size-8) auto;
+}
+
+.main .h1 {
+  text-align: center;
+}
+
+.hr {
+  margin-top: var(--size-2);
+  margin-bottom: var(--size-2);
+}
+.primary_hr {
+  margin-top: var(--size-8);
+  margin-bottom: var(--size-8);
+}
+
+.card_actions,
+.price,
+.total {
+  justify-content: space-between;
+}
+
+.price,
+.other_charges {
+  margin-bottom: var(--size-4);
+}
+
+@media only screen and (min-width: 49rem) {
+  .main {
+    width: 90%;
+  }
+}

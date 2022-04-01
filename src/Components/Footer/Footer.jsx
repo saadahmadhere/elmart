@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer id="footer" className="flex_col mt_10">
       <h3 className="footer_heading">
-        Made with &#123;&#9829; &#125; by
+        Made with &#123; &#9829; &#125; by
         <a href="https://saadahmad.netlify.app/"> Saad Ahmad</a>
       </h3>
       <div className="footer_social">

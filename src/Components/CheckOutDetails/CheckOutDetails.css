@@ -1,0 +1,15 @@
+.cart_details .btn {
+  margin-left: auto;
+}
+
+.cart_details {
+  border: 1px solid var(--gray-100);
+  border-radius: var(--size-1);
+  padding: var(--size-4);
+  color: var(--gray-200);
+}
+
+.btn_checkout.btn_primary {
+  background-color: var(--navbar-btn-primary);
+  color: var(--gray-200);
+}

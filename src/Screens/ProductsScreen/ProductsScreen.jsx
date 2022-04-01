@@ -1,4 +1,3 @@
-import { Navbar } from "../../Components";
 import { Card } from "../../Components";
 import { useData } from "../../Helper";
 import { useState, useEffect } from "react";
@@ -29,8 +28,6 @@ const ProductScreen = () => {
 
   return (
     <>
-      <Navbar />
-
       {loader ? <h1 style={{ fontSize: "20rem" }}>loading</h1> : null}
       <h2>Hello</h2>
 

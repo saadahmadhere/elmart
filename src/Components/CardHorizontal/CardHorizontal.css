@@ -1,0 +1,27 @@
+.card_horizontal .img_card img {
+  object-fit: contain;
+  object-position: center;
+}
+
+.card_horizontal .heading_card {
+  margin: auto 1rem;
+}
+
+.card_amount .input {
+  width: var(--size-12);
+  padding: var(--size-1);
+  border: 2px solid var(--gray-600);
+  margin: var(--size-2);
+}
+
+.card_amount .input:hover {
+  cursor: pointer;
+}
+
+.heading_card > * {
+  margin-top: var(--size-2);
+}
+
+.card_horizontal .container_bottom > * {
+  width: 100%;
+}
