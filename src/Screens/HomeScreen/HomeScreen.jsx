@@ -1,13 +1,11 @@
 import { Link } from "react-router-dom";
-import { Navbar } from "../../Components/Navbar/Navbar";
-import { Categories } from "../../Components/Categories/";
-import { Footer } from "../../Components/Footer";
+import { Categories } from "../../Components/";
+import { Footer } from "../../Components/";
 import "./HomeScreen.css";
 
 const HomeScreen = () => {
   return (
     <>
-      <Navbar />
       <div className="home_banner ">
         <h1
           className="h1 gray_subtitle mb_4 txt_center"

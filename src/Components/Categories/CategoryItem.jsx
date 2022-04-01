@@ -26,7 +26,7 @@ const CategoryItem = () => {
   return (
     <div className="category_items flex">
       {categories.map((categoryItem) => (
-        <div className="category_product" key={categoryItem.id}>
+        <div className="category_product" key={categoryItem._id}>
           <img
             src={categoryItem.image}
             alt={categoryItem.categoryName}
