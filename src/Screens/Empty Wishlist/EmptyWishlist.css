@@ -1,0 +1,16 @@
+.empty_wishlist {
+  max-width: 18.75rem;
+  margin: 0 var(--size-5);
+  margin-top: var(--size-20);
+}
+
+@media only screen and (min-width: 30rem) {
+  .empty_wishlist {
+    margin: 0 auto;
+    margin-top: var(--size-20);
+  }
+  .empty_wishlist__text {
+    font-size: var(--size-7);
+    margin: var(--size-6) var(--size-2);
+  }
+}
