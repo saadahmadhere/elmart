@@ -4,7 +4,7 @@ import { useData } from "../../Helper";
 
 const Navbar = () => {
   const {
-    state: { cart },
+    state: { cart, wishlist },
   } = useData();
 
   return (
@@ -40,7 +40,9 @@ const Navbar = () => {
           <div className="icon_badge">
             <Link to="/wishlist" className="btn">
               <span className="material-icons outlined">favorite</span>
-              <div className="badge badge_red badge_wishlist">6</div>
+              <div className="badge badge_red badge_wishlist">
+                {wishlist.length}
+              </div>
             </Link>
           </div>
         </li>
