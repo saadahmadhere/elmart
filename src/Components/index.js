@@ -4,5 +4,5 @@ export { CategoryItem } from "./Categories/CategoryItem";
 export { CheckOutDetails } from "./CheckOutDetails/CheckOutDetails";
 export { Footer } from "./Footer/Footer";
 export { Navbar } from "./Navbar/Navbar";
-export { Card } from "./Card-ProductPage/Card";
-export { Rating } from "./Card-ProductPage/Rating";
+export { Card } from "./Card/Card";
+export { Rating } from "./Card/Rating";

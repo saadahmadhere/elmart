@@ -29,18 +29,39 @@ const reducer = (state, action) => {
         ...state,
         cart: state.cart.filter((cartItem) => cartItem._id !== action.payload),
       };
+
+    case "ADD_TO_WISHLIST":
+      return { ...state, wishlist: [...state.wishlist, action.payload] };
+
+    case "REMOVE_FROM_WISHLIST":
+      return {
+        ...state,
+        wishlist: state.wishlist.filter(
+          (product) => product._id !== action.payload._id
+        ),
+      };
+
     default:
       return state;
   }
 };
 
-const initialState = { products: [], categories: [], cart: [] };
+const initialState = { products: [], categories: [], cart: [], wishlist: [] };
 
 const ProductDataProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  const inCart = (id) => {
+    return state.cart.find((cartItem) => cartItem._id === id);
+  };
+
+  const inWishlist = (id) => {
+    return state.wishlist.find((cartItem) => cartItem._id === id);
+  };
+
   return (
-    <ProductDataContext.Provider value={{ state, dispatch }}>
+    <ProductDataContext.Provider
+      value={{ state, dispatch, inWishlist, inCart }}>
       {children}
     </ProductDataContext.Provider>
   );

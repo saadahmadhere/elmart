@@ -3,17 +3,20 @@ import { useData } from "../../Helper";
 import { Link } from "react-router-dom";
 
 const Card = ({ product }) => {
-  const {
-    state: { cart },
-    dispatch,
-  } = useData();
+  const { inWishlist, inCart, dispatch } = useData();
 
   const addToCartHandler = (product) => {
     dispatch({ type: "ADD_TO_CART", payload: product });
-    console.log(product);
   };
 
-  const isPresentInCart = cart.find((cartItem) => cartItem._id === product._id);
+  const addToWishListHandler = (product) => {
+    dispatch({ type: "ADD_TO_WISHLIST", payload: product });
+  };
+
+  const removeFromWishlistHandler = (product) => {
+    dispatch({ type: "REMOVE_FROM_WISHLIST", payload: product });
+  };
+
   return (
     <div className={`card card_w_badge ${!product.inStock && "card_overlay"}`}>
       <div className="container_top">
@@ -47,7 +50,7 @@ const Card = ({ product }) => {
       </div>
       <div className="container_bottom">
         <div className="action_buttons">
-          {!isPresentInCart ? (
+          {!inCart(product._id) ? (
             <button
               onClick={() => addToCartHandler(product)}
               className="btn btn_primary btn_sm">
@@ -65,11 +68,21 @@ const Card = ({ product }) => {
         </div>
 
         <div className="action_icons">
-          <button>
-            <span className="material-icons outlined icon">
-              favorite_border
-            </span>
-          </button>
+          {!inWishlist(product._id) ? (
+            <button onClick={() => addToWishListHandler(product)}>
+              <span className="material-icons outlined icon">
+                favorite_border
+              </span>
+            </button>
+          ) : (
+            <button onClick={() => removeFromWishlistHandler(product)}>
+              <span
+                className="material-icons outlined icon"
+                style={{ color: "red" }}>
+                favorite
+              </span>
+            </button>
+          )}
         </div>
       </div>
     </div>

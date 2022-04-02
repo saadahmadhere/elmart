@@ -8,7 +8,6 @@ import { EmptyCart } from "../";
 const CartScreen = () => {
   const {
     state: { cart },
-    dispatch,
   } = useData();
 
   const [totalPrice, setTotalPrice] = useState(0);
