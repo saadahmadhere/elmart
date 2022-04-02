@@ -4,16 +4,28 @@ import { Link } from "react-router-dom";
 
 const Card = ({ product }) => {
   const {
-    state: { cart },
+    state: { cart, wishlist },
     dispatch,
   } = useData();
 
   const addToCartHandler = (product) => {
     dispatch({ type: "ADD_TO_CART", payload: product });
-    console.log(product);
+  };
+
+  const addToWishListHandler = (product) => {
+    dispatch({ type: "ADD_TO_WISHLIST", payload: product });
+  };
+
+  const removeFromWishlistHandler = (product) => {
+    dispatch({ type: "REMOVE_FROM_WISHLIST", payload: product });
   };
 
   const isPresentInCart = cart.find((cartItem) => cartItem._id === product._id);
+
+  const isPresentInWishlist = wishlist.find(
+    (wishlistItem) => wishlistItem._id === product._id
+  );
+
   return (
     <div className={`card card_w_badge ${!product.inStock && "card_overlay"}`}>
       <div className="container_top">
@@ -65,11 +77,21 @@ const Card = ({ product }) => {
         </div>
 
         <div className="action_icons">
-          <button>
-            <span className="material-icons outlined icon">
-              favorite_border
-            </span>
-          </button>
+          {!isPresentInWishlist ? (
+            <button onClick={() => addToWishListHandler(product)}>
+              <span className="material-icons outlined icon">
+                favorite_border
+              </span>
+            </button>
+          ) : (
+            <button onClick={() => removeFromWishlistHandler(product)}>
+              <span
+                className="material-icons outlined icon"
+                style={{ color: "red" }}>
+                favorite
+              </span>
+            </button>
+          )}
         </div>
       </div>
     </div>
