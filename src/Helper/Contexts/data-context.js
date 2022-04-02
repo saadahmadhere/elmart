@@ -51,8 +51,17 @@ const initialState = { products: [], categories: [], cart: [], wishlist: [] };
 const ProductDataProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  const inCart = (id) => {
+    return state.cart.find((cartItem) => cartItem._id === id);
+  };
+
+  const inWishlist = (id) => {
+    return state.wishlist.find((cartItem) => cartItem._id === id);
+  };
+
   return (
-    <ProductDataContext.Provider value={{ state, dispatch }}>
+    <ProductDataContext.Provider
+      value={{ state, dispatch, inWishlist, inCart }}>
       {children}
     </ProductDataContext.Provider>
   );
