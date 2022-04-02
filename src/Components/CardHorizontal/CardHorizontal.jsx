@@ -2,10 +2,7 @@ import { useData } from "../../Helper";
 import "./CardHorizontal.css";
 
 const CardHorizontal = ({ product }) => {
-  const {
-    state: { wishlist },
-    dispatch,
-  } = useData();
+  const { inWishlist, dispatch } = useData();
 
   const itemQuantityHandler = (e, product) => {
     dispatch({
@@ -18,13 +15,9 @@ const CardHorizontal = ({ product }) => {
     dispatch({ type: "REMOVE_FROM_CART", payload: _id });
   };
 
-  const isPresentInWishlist = wishlist.find(
-    (wishlistItem) => wishlistItem._id === product._id
-  );
-
   const addToWishListHandler = (product) => {
     dispatch({ type: "REMOVE_FROM_CART", payload: product._id });
-    !isPresentInWishlist &&
+    !inWishlist(product._id) &&
       dispatch({ type: "ADD_TO_WISHLIST", payload: product });
   };
 
