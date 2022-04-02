@@ -13,7 +13,6 @@ const CategoryItem = () => {
     try {
       const categoriesData = await axios.get("/api/categories");
       dispatch({ type: "CATEGORIES", payload: categoriesData.data.categories });
-      console.log(categoriesData.data.categories);
     } catch (error) {
       console.error(error);
     }
