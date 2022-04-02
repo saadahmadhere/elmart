@@ -3,7 +3,7 @@ import "./CardHorizontal.css";
 
 const CardHorizontal = ({ product }) => {
   const {
-    state: { cart },
+    state: { wishlist },
     dispatch,
   } = useData();
 
@@ -16,6 +16,16 @@ const CardHorizontal = ({ product }) => {
 
   const removeCartItemHandler = (_id) => {
     dispatch({ type: "REMOVE_FROM_CART", payload: _id });
+  };
+
+  const isPresentInWishlist = wishlist.find(
+    (wishlistItem) => wishlistItem._id === product._id
+  );
+
+  const addToWishListHandler = (product) => {
+    dispatch({ type: "REMOVE_FROM_CART", payload: product._id });
+    !isPresentInWishlist &&
+      dispatch({ type: "ADD_TO_WISHLIST", payload: product });
   };
 
   return (
@@ -52,7 +62,7 @@ const CardHorizontal = ({ product }) => {
             </button>
           </div>
           <div className="action_icons">
-            <button>
+            <button onClick={() => addToWishListHandler(product)}>
               <span className="material-icons outlined icon">
                 favorite_border
               </span>
