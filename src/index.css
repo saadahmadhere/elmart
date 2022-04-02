@@ -3,3 +3,11 @@
 body {
   font-family: "Montserrat", sans-serif;
 }
+
+.icon_badge .btn:hover {
+  opacity: 1;
+}
+
+.card .img_card img {
+  object-position: center;
+}
