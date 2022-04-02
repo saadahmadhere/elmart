@@ -35,7 +35,7 @@ const ProductScreen = () => {
         className="flex flex_wrap flex_justify__center"
         style={{ gap: "2rem" }}>
         {products.map((product) => (
-          <Card product={product} key={product.id} />
+          <Card product={product} key={product._id} />
         ))}
       </div>
     </>
