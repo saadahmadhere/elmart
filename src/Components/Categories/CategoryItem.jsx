@@ -11,7 +11,7 @@ const CategoryItem = () => {
 
   const fetchCategories = async () => {
     try {
-      const categoriesData = await axios.get("/api/categorie");
+      const categoriesData = await axios.get("/api/categories");
       if (categoriesData.status === 200) {
         dispatch({
           type: "CATEGORIES",
