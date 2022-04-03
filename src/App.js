@@ -1,5 +1,10 @@
-import { CartScreen, HomeScreen, WishlistScreen } from "./Screens";
-import { ProductScreen } from "./Screens";
+import {
+  CartScreen,
+  HomeScreen,
+  WishlistScreen,
+  ProductScreen,
+} from "./Screens";
+import { Footer } from "./Components";
 import { Route, Routes } from "react-router-dom";
 import { Navbar } from "./Components";
 
@@ -13,6 +18,7 @@ const App = () => {
         <Route path="/cart" element={<CartScreen />} />
         <Route path="/wishlist" element={<WishlistScreen />} />
       </Routes>
+      <Footer />
     </>
   );
 };

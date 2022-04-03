@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { Categories } from "../../Components/";
-import { Footer } from "../../Components/";
 import "./HomeScreen.css";
 
 const HomeScreen = () => {
@@ -20,7 +19,6 @@ const HomeScreen = () => {
         </Link>
       </div>
       <Categories />
-      <Footer />
     </>
   );
 };
