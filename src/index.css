@@ -4,6 +4,13 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+#root {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .icon_badge .btn:hover {
   opacity: 1;
 }
