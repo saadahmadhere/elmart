@@ -68,7 +68,7 @@ export const products = [
     categoryName: "Keyboards",
     inStock: 0,
     fastDelivery: true,
-    ratings: 4.5,
+    ratings: 4.6,
     reviews: 27,
   },
   {
@@ -94,7 +94,7 @@ export const products = [
     categoryName: "Keyboards",
     inStock: 4,
     fastDelivery: true,
-    ratings: 4.2,
+    ratings: 2.0,
     reviews: 938,
   },
   {
@@ -107,7 +107,7 @@ export const products = [
     categoryName: "Keyboards",
     inStock: 4,
     fastDelivery: true,
-    ratings: 4.0,
+    ratings: 1.5,
     reviews: 432,
   },
   {
@@ -120,7 +120,7 @@ export const products = [
     categoryName: "Mobile Phones",
     inStock: 2,
     fastDelivery: true,
-    ratings: 4.8,
+    ratings: 5,
     reviews: 1837,
   },
   {
@@ -146,7 +146,7 @@ export const products = [
     categoryName: "Mobile Phones",
     inStock: 12,
     fastDelivery: true,
-    ratings: 4.5,
+    ratings: 2.5,
     reviews: 83,
   },
   {
