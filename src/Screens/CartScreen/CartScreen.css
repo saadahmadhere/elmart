@@ -20,8 +20,9 @@
 }
 
 .card_actions,
-.price,
-.total {
+.cart_details .price,
+.cart_details .total {
+  display: flex;
   justify-content: space-between;
 }
 
