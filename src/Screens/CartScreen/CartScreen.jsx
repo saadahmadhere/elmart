@@ -11,11 +11,13 @@ const CartScreen = () => {
   } = useData();
 
   const [totalPrice, setTotalPrice] = useState(0);
+  const [totalItems, setTotalItems] = useState(0);
 
   useEffect(() => {
     setTotalPrice(
       cart.reduce((acc, sum) => acc + Number(sum.price * sum.qty), 0)
     );
+    setTotalItems(cart.reduce((acc, item) => acc + Number(item.qty), 0));
   }, [cart]);
 
   return (
@@ -30,7 +32,11 @@ const CartScreen = () => {
             ))}
           </div>
 
-          <CheckOutDetails cart={cart} totalPrice={totalPrice} />
+          <CheckOutDetails
+            cart={cart}
+            totalPrice={totalPrice}
+            totalItems={totalItems}
+          />
         </section>
       ) : (
         <EmptyCart />
