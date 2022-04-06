@@ -8,7 +8,7 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "Earphones",
+    categoryName: "Ear Phones",
     image:
       "https://drive.google.com/uc?export=view&id=1bZhEMD46AmPyxMa1kT2nHxQa2wWpZbF_",
   },

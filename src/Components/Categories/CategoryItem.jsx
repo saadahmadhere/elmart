@@ -1,13 +1,19 @@
 import axios from "axios";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./CategoryItem.css";
 import { useData } from "../../Helper/";
+import { useFilter } from "../../Helper";
 
 const CategoryItem = () => {
+  const navigate = useNavigate();
+
   const {
     state: { categories },
     dispatch,
   } = useData();
+
+  const { filterDispatch } = useFilter();
 
   const fetchCategories = async () => {
     try {
@@ -37,7 +43,16 @@ const CategoryItem = () => {
         <h2 style={{ color: "red" }}>Problem loading categories ...</h2>
       ) : (
         categories.map((categoryItem) => (
-          <div className="category_product" key={categoryItem._id}>
+          <div
+            className="category_product"
+            key={categoryItem._id}
+            onClick={() => {
+              filterDispatch({
+                type: "CATEGORY",
+                payload: categoryItem.categoryName.toLowerCase(),
+              });
+              navigate("/productListing");
+            }}>
             <img
               src={categoryItem.image}
               alt={categoryItem.categoryName}

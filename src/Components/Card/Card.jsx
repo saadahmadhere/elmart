@@ -58,7 +58,7 @@ const Card = ({ product }) => {
               Add to Cart
             </button>
           ) : (
-            <Link to="/cart" className="btn btn_primary btn_sm">
+            <Link to="/cart" className="btn btn_outline btn_sm">
               <span className="material-icons outlined icon">
                 add_shopping_cart
               </span>
