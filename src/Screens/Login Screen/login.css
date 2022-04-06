@@ -1,0 +1,83 @@
+.login {
+  padding-top: var(--size-8);
+}
+
+.login form {
+  margin: var(--size-8) auto;
+  border-radius: var(--size-1);
+  padding: var(--size-8);
+  box-shadow: var(--size-2) var(--size-2) var(--size-4) rgb(109, 108, 108);
+}
+
+.login input {
+  margin-bottom: var(--size-4);
+}
+
+.login .btn {
+  align-self: center;
+  width: 100%;
+}
+
+.login .btn_login {
+  padding: var(--size-3) var(--size-6);
+}
+
+.login #check_box:hover {
+  cursor: pointer;
+}
+
+.login .forgot_pwd {
+  margin-top: var(--size-2);
+  align-self: center;
+  transition: 0.5s;
+  color: var(--primary-color);
+}
+
+.login .forgot_pwd:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.login .login_pwd {
+  position: relative;
+}
+
+.login_pwd .visibility {
+  position: absolute;
+  right: 3%;
+  top: 45%;
+}
+
+.login .hr {
+  border: none;
+  border-top: 2px solid var(--gray-700);
+  margin-top: var(--size-3);
+  margin-bottom: var(--size-3);
+}
+
+.login .btn_icon:hover {
+  cursor: pointer;
+}
+
+.btn_create__acc {
+  background-color: #f0a428;
+  color: white;
+}
+
+.btn_show__password {
+  color: var(--gray-500);
+}
+
+.btn_show__password:hover {
+  color: var(--primary-color);
+}
+
+@media only screen and (min-width: 48rem) {
+  .login form {
+    width: 25rem;
+  }
+
+  .login .btn_login {
+    padding: var(--size-3) var(--size-6);
+  }
+}
