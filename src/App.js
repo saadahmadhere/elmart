@@ -3,6 +3,8 @@ import {
   HomeScreen,
   WishlistScreen,
   ProductScreen,
+  Login,
+  SignUp,
 } from "./Screens";
 import { Footer } from "./Components";
 import { Route, Routes } from "react-router-dom";
@@ -17,6 +19,8 @@ const App = () => {
         <Route path="/productListing" element={<ProductScreen />} />
         <Route path="/cart" element={<CartScreen />} />
         <Route path="/wishlist" element={<WishlistScreen />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signUp" element={<SignUp />} />
       </Routes>
       <Footer />
     </>

@@ -31,7 +31,7 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link to="/signup" className="btn btn_outline btn_logout btn_sm">
+          <Link to="/signUp" className="btn btn_outline btn_logout btn_sm">
             Signup
           </Link>
         </li>
