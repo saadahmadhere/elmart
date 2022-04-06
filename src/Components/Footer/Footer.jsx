@@ -2,7 +2,7 @@ import "./Footer.css";
 
 const Footer = () => {
   return (
-    <footer id="footer" className="flex_col mt_10">
+    <footer id="footer" className="flex_col ">
       <h3 className="footer_heading">
         Made with &#123; &#9829; &#125; by
         <a href="https://saadahmad.netlify.app/"> Saad Ahmad</a>
