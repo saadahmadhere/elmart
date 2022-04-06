@@ -57,17 +57,20 @@ const Filters = () => {
       <div className="category">
         <h4 className="h4 gray_title mb_4">Categories</h4>
         <div className="category_item">
-          <input
-            type="checkbox"
-            name="category"
-            id="earphones"
-            onChange={() =>
-              filterDispatch({ type: "CATEGORY", payload: "ear phones" })
-            }
-            checked={categories.includes("ear phones")}
-          />
-          <label htmlFor="earphones" className="">
-            Earphones
+          <label>
+            <input
+              type="checkbox"
+              name="category"
+              id="earphones"
+              onChange={(e) =>
+                filterDispatch({
+                  type: "CATEGORY",
+                  payload: "ear phones",
+                })
+              }
+              checked={categories.includes("ear phones")}
+            />
+            Ear Phones
           </label>
         </div>
         <div className="category_item">
@@ -75,7 +78,6 @@ const Filters = () => {
             <input
               type="checkbox"
               name="category"
-              id="mobile_phones"
               onChange={() =>
                 filterDispatch({ type: "CATEGORY", payload: "mobile phones" })
               }
