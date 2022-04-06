@@ -1,7 +1,5 @@
 import React from "react";
 import { FaStar, FaRegStar } from "react-icons/fa";
-
-import { useState } from "react";
 import { useFilter } from "../../Helper";
 
 const RatingFilter = () => {
@@ -12,15 +10,15 @@ const RatingFilter = () => {
     filterDispatch,
   } = useFilter();
 
-  return [...Array(5)].map((_, i) => (
+  return [...Array(5)].map((_, index) => (
     <span
       className="mr_1"
       style={{ cursor: "pointer", color: "#ff9529" }}
       onClick={() => {
-        filterDispatch({ type: "FILTER_BY_RATING", payload: i + 1 });
+        filterDispatch({ type: "FILTER_BY_RATING", payload: index + 1 });
       }}
-      key={i}>
-      {rating >= i + 1 ? <FaStar /> : <FaRegStar />}
+      key={index}>
+      {rating >= index + 1 ? <FaStar /> : <FaRegStar />}
     </span>
   ));
 };
