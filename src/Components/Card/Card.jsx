@@ -30,7 +30,7 @@ const Card = ({ product }) => {
         <div className="img_card">
           <img
             src={product.image}
-            alt="A bored ape"
+            alt={product.name}
             style={{ objectFit: "contain" }}
           />
         </div>
