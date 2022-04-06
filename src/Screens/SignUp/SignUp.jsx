@@ -3,68 +3,73 @@ import { Link } from "react-router-dom";
 
 const SignUp = () => {
   return (
-    <main class="signUp flex_col flex_align__center">
-      <h1 class="h1 gray_title">Sign Up</h1>
-      <form class="flex_col">
-        <label for="fName" class="label gray_title field_required">
+    <main className="signUp flex_col flex_align__center">
+      <h1 className="h1 gray_title">Sign Up</h1>
+      <form className="flex_col">
+        <label htmlFor="fName" className="label gray_title field_required">
           First Name
         </label>
         <input
           type="text"
           id="fName"
-          class="input block"
+          className="input block"
           placeholder="John"
-          autofocus
+          autoFocus
           required
         />
-        <label for="lName" class="label gray_title field_required">
+        <label htmlFor="lName" className="label gray_title field_required">
           Last Name
         </label>
         <input
           type="text"
           id="lName"
-          class="input block"
+          className="input block"
           placeholder="Wick"
           required
         />
-        <label for="email" class="label gray_title field_required">
+        <label htmlFor="email" className="label gray_title field_required">
           Email address
         </label>
         <input
           type="email"
           id="email"
           placeholder="john.wick@motocyles.com"
-          class="input block"
+          className="input block"
           required
         />
-        <label for="password" class="label gray_title field_required" required>
+        <label
+          htmlFor="password"
+          className="label gray_title field_required"
+          required>
           Password
         </label>
         <input
           type="password"
           id="password"
-          class="input block"
+          className="input block"
           placeholder="Your password here..."
           required
         />
-        <label for="confirmPassword" class="label gray_title field_required">
+        <label
+          htmlFor="confirmPassword"
+          className="label gray_title field_required">
           Confirm Password
         </label>
         <input
           type="password"
           id="confirmPassword"
-          class="input block"
+          className="input block"
           placeholder="Confirm password"
           required
         />
-        <div class="input_container">
+        <div className="input_container">
           <input type="checkbox" id="check_box" required />
-          <label for="check_box" class="label field_required">
+          <label htmlFor="check_box" className="label field_required">
             I agree to the terms of service.
           </label>
         </div>
-        <button class="btn btn_primary btn_sm">Signup</button>
-        <Link to="/login" class="txt_regular">
+        <button className="btn btn_primary btn_sm">Signup</button>
+        <Link to="/login" className="txt_regular">
           Already have an account?
         </Link>
       </form>
