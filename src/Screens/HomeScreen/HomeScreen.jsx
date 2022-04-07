@@ -6,11 +6,7 @@ const HomeScreen = () => {
   return (
     <>
       <div className="home_banner ">
-        <h1
-          className="h1 gray_subtitle mb_4 txt_center"
-          style={{ fontSize: "4rem" }}>
-          End Of Reason SALE
-        </h1>
+        <h1 className="h1 gray_subtitle mb_4 txt_center">End of Reason SALE</h1>
         <span className="home_offer">50% off</span>
         <Link
           to="/productListing"
