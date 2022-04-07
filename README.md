@@ -28,4 +28,5 @@
 
 ## Preview
 
-![preview](./elmart - Google Chrome 2022-04-07 19)
+https://user-images.githubusercontent.com/52596800/162252596-08a436ca-cfba-4838-a4a9-b39233fefb6f.mp4
+
