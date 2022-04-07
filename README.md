@@ -5,15 +5,14 @@
 </div>
 
 ## Features
-
 -Product Listing.
 -Signin and Signup page.
 -Filters
-  - Sort by Price.
-  - Filter by Price.
-  - Filter by Rating.
-  - Filter by Category.
-  - Filter by Availability.
+    - Sort by Price.
+    - Filter by Price.
+    - Filter by Rating.
+    - Filter by Category.
+    - Filter by Availability.
 - Cart Management.
 - Wishlist Management.
 
