@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Card } from "../../Components";
-import { useData, useFilter } from "../../Helper";
+import { useFilter } from "../../Helper";
 import { useState, useEffect } from "react";
 import { Filters } from "../../Components";
 

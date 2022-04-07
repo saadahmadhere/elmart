@@ -10,13 +10,17 @@
   padding: var(--size-6);
 }
 
+.home_banner .h1 {
+  font-size: var(--size-12);
+}
+
 .home_banner .btn_cta {
   background-color: #ff5733;
   color: #fff;
 }
 
 .home_offer {
-  font-size: var(--size-12);
+  font-size: var(--size-10);
   color: #ff5733;
   font-weight: 700;
 }
@@ -24,6 +28,10 @@
 @media only screen and (min-width: 30rem) {
   .home_banner {
     min-height: 35vh;
+  }
+
+  .home_banner .h1 {
+    font-size: var(--size-16);
   }
 
   .home_offer {
