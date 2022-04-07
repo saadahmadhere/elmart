@@ -5,16 +5,16 @@
 </div>
 
 ## Features
--Product Listing.
--Signin and Signup page.
--Filters
-    - Sort by Price.
-    - Filter by Price.
-    - Filter by Rating.
-    - Filter by Category.
-    - Filter by Availability.
-- Cart Management.
-- Wishlist Management.
+- Product Listing.
+- Signin and Signup page.
+- Filters
+  - Sort by Price(Price Range).
+  - Filter by Price.
+  - Filter by Rating.
+  - Filter by Category.
+  - Filter by Availability.
+- Wishlist management
+- Cart Management
 
 ---
 
@@ -23,7 +23,7 @@
 - VanillaJs
 - HTML
 - Css
-- Chroma(https://chroma-ui.netlify.app/)
+- [Chroma](https://chroma-ui.netlify.app/)
 ---
 
 ## Preview
