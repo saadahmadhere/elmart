@@ -22,10 +22,6 @@
   padding: var(--size-3) var(--size-6);
 }
 
-.login #check_box:hover {
-  cursor: pointer;
-}
-
 .login .forgot_pwd {
   margin-top: var(--size-2);
   align-self: center;
