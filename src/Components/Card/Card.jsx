@@ -1,16 +1,22 @@
 import { Rating } from "./Rating";
-import { useData } from "../../Helper";
-import { Link } from "react-router-dom";
+import { useData, useAuth } from "../../Helper";
+import { Link, useNavigate } from "react-router-dom";
 
 const Card = ({ product }) => {
+  const { isLoggedIn } = useAuth();
+  const navigate = useNavigate();
   const { inWishlist, inCart, dispatch } = useData();
 
   const addToCartHandler = (product) => {
-    dispatch({ type: "ADD_TO_CART", payload: product });
+    isLoggedIn
+      ? dispatch({ type: "ADD_TO_CART", payload: product })
+      : navigate("/login");
   };
 
   const addToWishListHandler = (product) => {
-    dispatch({ type: "ADD_TO_WISHLIST", payload: product });
+    isLoggedIn
+      ? dispatch({ type: "ADD_TO_WISHLIST", payload: product })
+      : navigate("/login");
   };
 
   const removeFromWishlistHandler = (product) => {
