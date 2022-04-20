@@ -40,7 +40,6 @@ const Navbar = () => {
           <li>
             {isLoggedIn ? (
               <button
-                to="/login"
                 className="btn btn_outline btn_logout btn_sm"
                 onClick={logoutHandler}>
                 Logout
