@@ -1,14 +1,22 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
-import { useData, useFixSidebarOverflow } from "../../Helper";
+import { useData, useFixSidebarOverflow, useAuth } from "../../Helper";
 import { useState } from "react";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [showSideNav, setShowSideNav] = useState(false);
+  const { isLoggedIn, setIsLoggedIn } = useAuth();
   useFixSidebarOverflow(showSideNav);
+
   const {
     state: { cart, wishlist },
   } = useData();
+
+  const logoutHandler = (e) => {
+    setIsLoggedIn(false);
+    navigate("/");
+  };
 
   return (
     <>
@@ -30,15 +38,26 @@ const Navbar = () => {
         </div>
         <ul className="navbar_links flex list_style_none">
           <li>
-            <Link to="/login" className="btn btn_primary btn_sm">
-              Login
-            </Link>
+            {isLoggedIn ? (
+              <button
+                to="/login"
+                className="btn btn_outline btn_logout btn_sm"
+                onClick={logoutHandler}>
+                Logout
+              </button>
+            ) : (
+              <Link to="/login" className="btn btn_primary btn_sm">
+                Login
+              </Link>
+            )}
           </li>
-          <li>
-            <Link to="/signUp" className="btn btn_outline btn_logout btn_sm">
-              Signup
-            </Link>
-          </li>
+          {!isLoggedIn && (
+            <li>
+              <Link to="/signUp" className="btn btn_outline btn_logout btn_sm">
+                Signup
+              </Link>
+            </li>
+          )}
 
           <li>
             <div className="icon_badge">
@@ -86,7 +105,13 @@ const Navbar = () => {
             onClick={() => {
               setShowSideNav(false);
             }}>
-            <Link to="/login">Login</Link>
+            {isLoggedIn ? (
+              <button className="btn" onClick={logoutHandler}>
+                Logout
+              </button>
+            ) : (
+              <Link to="/login">Login</Link>
+            )}
           </li>
           <li
             className="mb_4 txt_semibold"
