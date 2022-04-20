@@ -1,25 +1,43 @@
 import { useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useAuth } from "../../Helper";
 import "./login.css";
-import { Link } from "react-router-dom";
 
 const Login = () => {
+  const { setIsLoggedIn } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const toPreviousRoute = location?.state?.from?.pathname || "/";
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState(false);
 
   const emailHandler = (e) => {
     e.preventDefault();
     setEmail(e.target.value);
+    setError(false);
   };
 
   const passwordHandler = (e) => {
     e.preventDefault();
     setPassword(e.target.value);
+    setError(false);
   };
 
   const showPasswordHandler = (e) => {
     e.preventDefault();
     setShowPassword((prev) => !prev);
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    if (password === "adarshbalika" && email === "adarshbalika@gmail.com") {
+      setIsLoggedIn(true);
+      navigate(toPreviousRoute);
+    } else {
+      setError(true);
+    }
   };
 
   const testLoginHandler = (e) => {
@@ -31,7 +49,7 @@ const Login = () => {
   return (
     <main className="login flex_col flex_align__center">
       <h1 className="h2 gray_title">Login</h1>
-      <form className="flex_col">
+      <form className="flex_col" onSubmit={submitHandler}>
         <label className="label field_required gray_title" htmlFor="email_id">
           Email address
         </label>
@@ -68,7 +86,14 @@ const Login = () => {
             </span>
           </button>
         </div>
-        <button className="btn btn_primary btn_sm txt_semibold">Login</button>
+        <button className="btn btn_primary btn_sm txt_semibold" type="submit">
+          Login
+        </button>
+        {error && (
+          <div style={{ color: "red" }} className="mt_2">
+            <i class="fas fa-info-circle mx_1"></i>Invalid Email or Password
+          </div>
+        )}
         <button
           className="btn btn_outline btn_sm mt_2"
           onClick={testLoginHandler}>
