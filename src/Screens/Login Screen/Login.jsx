@@ -5,7 +5,11 @@ import { useAuth } from "../../Helper";
 import "./login.css";
 
 const Login = () => {
+<<<<<<< HEAD
   const { userState, dispatchUserState } = useAuth();
+=======
+  const { setIsLoggedIn } = useAuth();
+>>>>>>> f03e02d76e76fbfdbad5b14631bdd33d30f3ffb7
   const navigate = useNavigate();
   const location = useLocation();
   const toPreviousRoute = location?.state?.from?.pathname || "/";
@@ -31,6 +35,7 @@ const Login = () => {
     setShowPassword((prev) => !prev);
   };
 
+<<<<<<< HEAD
   const loginSubmitHandler = (e) => {
     e.preventDefault();
     (async () => {
@@ -46,6 +51,16 @@ const Login = () => {
         setError(true);
       }
     })();
+=======
+  const submitHandler = (e) => {
+    e.preventDefault();
+    if (password === "adarshbalika" && email === "adarshbalika@gmail.com") {
+      setIsLoggedIn(true);
+      navigate(toPreviousRoute);
+    } else {
+      setError(true);
+    }
+>>>>>>> f03e02d76e76fbfdbad5b14631bdd33d30f3ffb7
   };
 
   const testLoginHandler = (e) => {
@@ -57,7 +72,11 @@ const Login = () => {
   return (
     <main className="login flex_col flex_align__center">
       <h1 className="h2 gray_title">Login</h1>
+<<<<<<< HEAD
       <form className="flex_col" onSubmit={loginSubmitHandler}>
+=======
+      <form className="flex_col" onSubmit={submitHandler}>
+>>>>>>> f03e02d76e76fbfdbad5b14631bdd33d30f3ffb7
         <label className="label field_required gray_title" htmlFor="email_id">
           Email address
         </label>
@@ -99,7 +118,11 @@ const Login = () => {
         </button>
         {error && (
           <div style={{ color: "red" }} className="mt_2">
+<<<<<<< HEAD
             <i className="fas fa-info-circle mx_1"></i>Invalid Email or Password
+=======
+            <i class="fas fa-info-circle mx_1"></i>Invalid Email or Password
+>>>>>>> f03e02d76e76fbfdbad5b14631bdd33d30f3ffb7
           </div>
         )}
         <button
