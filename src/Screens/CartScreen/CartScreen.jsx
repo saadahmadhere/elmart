@@ -1,14 +1,15 @@
-import { useState, useEffect } from "react";
-import { useData } from "../../Helper";
 import "./CartScreen.css";
-import { CardHorizontal } from "../../Components";
-import { CheckOutDetails } from "../../Components";
+import { useState, useEffect } from "react";
+import { CardHorizontal, CheckOutDetails } from "../../Components";
 import { EmptyCart } from "../";
+import { useAuth } from "../../Helper";
 
 const CartScreen = () => {
   const {
-    state: { cart },
-  } = useData();
+    userState: {
+      userData: { cart },
+    },
+  } = useAuth();
 
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalItems, setTotalItems] = useState(0);

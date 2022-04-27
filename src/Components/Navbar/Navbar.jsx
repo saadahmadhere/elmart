@@ -1,20 +1,25 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
-import { useData, useFixSidebarOverflow, useAuth } from "../../Helper";
+import { useFixSidebarOverflow, useAuth } from "../../Helper";
 import { useState } from "react";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [showSideNav, setShowSideNav] = useState(false);
-  const { isLoggedIn, setIsLoggedIn } = useAuth();
+  const {
+    userState,
+    dispatchUserState,
+    userState: {
+      userData: { cart },
+    },
+    userState: {
+      userData: { wishlist },
+    },
+  } = useAuth();
   useFixSidebarOverflow(showSideNav);
 
-  const {
-    state: { cart, wishlist },
-  } = useData();
-
-  const logoutHandler = (e) => {
-    setIsLoggedIn(false);
+  const logoutHandler = () => {
+    dispatchUserState({ type: "LOGOUT" });
     navigate("/");
   };
 
@@ -38,9 +43,8 @@ const Navbar = () => {
         </div>
         <ul className="navbar_links flex list_style_none">
           <li>
-            {isLoggedIn ? (
+            {userState.token ? (
               <button
-                to="/login"
                 className="btn btn_outline btn_logout btn_sm"
                 onClick={logoutHandler}>
                 Logout
@@ -51,7 +55,7 @@ const Navbar = () => {
               </Link>
             )}
           </li>
-          {!isLoggedIn && (
+          {!userState.token && (
             <li>
               <Link to="/signUp" className="btn btn_outline btn_logout btn_sm">
                 Signup
@@ -64,7 +68,7 @@ const Navbar = () => {
               <Link to="/wishlist" className="btn">
                 <span className="material-icons outlined">favorite</span>
                 <div className="badge badge_red badge_wishlist">
-                  {wishlist.length}
+                  {wishlist ? wishlist.length : "0"}
                 </div>
               </Link>
             </div>
@@ -73,7 +77,9 @@ const Navbar = () => {
             <div className="icon_badge">
               <Link to="/cart" className="btn">
                 <span className="material-icons outlined">shopping_cart</span>
-                <div className="badge badge_red md">{cart.length}</div>
+                <div className="badge badge_red md">
+                  {cart ? cart.length : "0"}
+                </div>
               </Link>
             </div>
           </li>
@@ -97,7 +103,11 @@ const Navbar = () => {
               close
             </span>
           </div>
-          <div className="mr_3 mt_3 txt_semibold">Hi, User</div>
+          {userState.token && (
+            <div className="mr_3 mt_3 txt_semibold">
+              Hi, {JSON.parse(localStorage.getItem("userState")).firstName}
+            </div>
+          )}
         </div>
         <ul className="list_style_none mt_3">
           <li
@@ -105,7 +115,7 @@ const Navbar = () => {
             onClick={() => {
               setShowSideNav(false);
             }}>
-            {isLoggedIn ? (
+            {userState.token ? (
               <button className="btn" onClick={logoutHandler}>
                 Logout
               </button>
@@ -113,13 +123,16 @@ const Navbar = () => {
               <Link to="/login">Login</Link>
             )}
           </li>
-          <li
-            className="mb_4 txt_semibold"
-            onClick={() => {
-              setShowSideNav(false);
-            }}>
-            <Link to="/signUp">Signup</Link>
-          </li>
+          {!userState.token && (
+            <li
+              className="mb_4 txt_semibold"
+              onClick={() => {
+                setShowSideNav(false);
+              }}>
+              <Link to="/signUp">Signup</Link>
+            </li>
+          )}
+
           <li
             className="mb_4 txt_semibold"
             onClick={() => {
