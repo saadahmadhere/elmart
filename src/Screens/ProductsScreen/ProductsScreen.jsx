@@ -14,7 +14,7 @@ const ProductScreen = () => {
       const productsData = await axios.get("/api/products");
       filterDispatch({ type: "PRODUCTS", payload: productsData.data.products });
     } catch (err) {
-      console.log(err);
+      console.error(err);
     } finally {
       setLoader(false);
     }

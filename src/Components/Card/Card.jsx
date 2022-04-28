@@ -1,26 +1,29 @@
-import { Rating } from "./Rating";
-import { useData, useAuth } from "../../Helper";
 import { Link, useNavigate } from "react-router-dom";
+import { Rating } from "./Rating";
+import {
+  useAuth,
+  addToCart,
+  addToWishlist,
+  removeFromWishlist,
+} from "../../Helper";
 
 const Card = ({ product }) => {
-  const { isLoggedIn } = useAuth();
   const navigate = useNavigate();
-  const { inWishlist, inCart, dispatch } = useData();
-
-  const addToCartHandler = (product) => {
-    isLoggedIn
-      ? dispatch({ type: "ADD_TO_CART", payload: product })
+  const { userState, dispatchUserState, inWishlist, inCart } = useAuth();
+  const addToCartHandler = () => {
+    userState.token
+      ? addToCart(product, userState.token, dispatchUserState)
       : navigate("/login");
   };
 
-  const addToWishListHandler = (product) => {
-    isLoggedIn
-      ? dispatch({ type: "ADD_TO_WISHLIST", payload: product })
+  const addToWishListHandler = () => {
+    userState.token
+      ? addToWishlist(product, userState.token, dispatchUserState)
       : navigate("/login");
   };
 
-  const removeFromWishlistHandler = (product) => {
-    dispatch({ type: "REMOVE_FROM_WISHLIST", payload: product });
+  const removeFromWishlistHandler = () => {
+    removeFromWishlist(product, userState.token, dispatchUserState);
   };
 
   return (
@@ -58,7 +61,7 @@ const Card = ({ product }) => {
         <div className="action_buttons">
           {!inCart(product._id) ? (
             <button
-              onClick={() => addToCartHandler(product)}
+              onClick={() => addToCartHandler()}
               className="btn btn_primary btn_sm">
               <span className="material-icons outlined">add_shopping_cart</span>
               Add to Cart
@@ -75,13 +78,13 @@ const Card = ({ product }) => {
 
         <div className="action_icons">
           {!inWishlist(product._id) ? (
-            <button onClick={() => addToWishListHandler(product)}>
+            <button onClick={() => addToWishListHandler()}>
               <span className="material-icons outlined icon">
                 favorite_border
               </span>
             </button>
           ) : (
-            <button onClick={() => removeFromWishlistHandler(product)}>
+            <button onClick={() => removeFromWishlistHandler()}>
               <span
                 className="material-icons outlined icon"
                 style={{ color: "red" }}>
