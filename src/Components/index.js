@@ -7,3 +7,4 @@ export { Navbar } from "./Navbar/Navbar";
 export { Card } from "./Card/Card";
 export { Rating } from "./Card/Rating";
 export { Filters } from "./Filters/Filters";
+export { RequiresAuth } from "./RequiresAuth";

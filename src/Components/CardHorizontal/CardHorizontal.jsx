@@ -1,24 +1,31 @@
-import { useData } from "../../Helper";
+import {
+  useAuth,
+  removeFromCart,
+  addToWishlist,
+  changeItemQuantity,
+} from "../../Helper";
 import "./CardHorizontal.css";
 
 const CardHorizontal = ({ product }) => {
-  const { inWishlist, dispatch } = useData();
+  const { userState, dispatchUserState, inWishlist } = useAuth();
 
-  const itemQuantityHandler = (e, product) => {
-    dispatch({
-      type: "CHANGE_ITEM_QUANTITY",
-      payload: { id: product.id, qty: e.target.value },
-    });
+  const itemQuantityHandler = (e) => {
+    changeItemQuantity(
+      product._id,
+      userState.token,
+      dispatchUserState,
+      e.target.value
+    );
   };
 
-  const removeCartItemHandler = (_id) => {
-    dispatch({ type: "REMOVE_FROM_CART", payload: _id });
+  const removeCartItemHandler = () => {
+    removeFromCart(product._id, userState.token, dispatchUserState);
   };
 
-  const addToWishListHandler = (product) => {
-    dispatch({ type: "REMOVE_FROM_CART", payload: product._id });
+  const addToWishListHandler = () => {
+    removeFromCart(product._id, userState.token, dispatchUserState);
     !inWishlist(product._id) &&
-      dispatch({ type: "ADD_TO_WISHLIST", payload: product });
+      addToWishlist(product, userState.token, dispatchUserState);
   };
 
   return (
@@ -35,7 +42,7 @@ const CardHorizontal = ({ product }) => {
           <div className="card_amount flex_justify__end">
             <select
               className="input"
-              onChange={(e) => itemQuantityHandler(e, product)}
+              onChange={(e) => itemQuantityHandler(e)}
               value={product.qty}>
               {[...Array(product.inStock)].map((_, i) => (
                 <option key={i}>{i + 1}</option>
@@ -50,12 +57,12 @@ const CardHorizontal = ({ product }) => {
           <div className="action_buttons">
             <button
               className="btn btn_primary btn_sm"
-              onClick={() => removeCartItemHandler(product._id)}>
+              onClick={() => removeCartItemHandler()}>
               Remove from cart
             </button>
           </div>
           <div className="action_icons">
-            <button onClick={() => addToWishListHandler(product)}>
+            <button onClick={() => addToWishListHandler()}>
               <span className="material-icons outlined icon">
                 favorite_border
               </span>

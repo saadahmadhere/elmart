@@ -1,12 +1,14 @@
 import "./WishlistScreen.css";
-import { useData } from "../../Helper";
+import { useAuth } from "../../Helper";
 import { EmptyWishlist } from "..";
 import { Card } from "../../Components/Card/Card";
 
 const WishlistScreen = () => {
   const {
-    state: { wishlist },
-  } = useData();
+    userState: {
+      userData: { wishlist },
+    },
+  } = useAuth();
 
   return (
     <main className="main_wishlist">

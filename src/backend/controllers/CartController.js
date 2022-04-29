@@ -122,7 +122,7 @@ export const updateCartItemHandler = function (schema, request) {
     if (action.type === "increment") {
       userCart.forEach((product) => {
         if (product._id === productId) {
-          product.qty += 1;
+          product.qty = action.payload;
           product.updatedAt = formatDate();
         }
       });

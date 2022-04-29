@@ -2,6 +2,10 @@
   padding-top: var(--size-8);
 }
 
+.login_pwd {
+  position: relative;
+}
+
 .signUp form {
   width: 18.75rem;
   margin: var(--size-8) auto;
