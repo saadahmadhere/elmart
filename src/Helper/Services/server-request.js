@@ -61,9 +61,9 @@ const addToCart = async (product, token, dispatch) => {
   }
 };
 
-const removeFromCart = async (product, token, dispatch) => {
+const removeFromCart = async (productId, token, dispatch) => {
   try {
-    const res = await axios.delete(`/api/user/cart/${product._id}`, {
+    const res = await axios.delete(`/api/user/cart/${productId}`, {
       headers: { authorization: token },
     });
     dispatch({ type: "REMOVE_FROM_CART", payload: res.data.cart });
@@ -88,9 +88,9 @@ const addToWishlist = async (product, token, dispatch) => {
   }
 };
 
-const removeFromWishlist = async (product, token, dispatch) => {
+const removeFromWishlist = async (productId, token, dispatch) => {
   try {
-    const res = await axios.delete(`/api/user/wishlist/${product._id}`, {
+    const res = await axios.delete(`/api/user/wishlist/${productId}`, {
       headers: { authorization: token },
     });
     dispatch({
@@ -102,11 +102,11 @@ const removeFromWishlist = async (product, token, dispatch) => {
   }
 };
 
-const changeItemQuantity = async (product, token, dispatch, quantity) => {
+const changeItemQuantity = async (productId, token, dispatch, quantity) => {
   try {
     (async () => {
       const res = await axios.post(
-        `/api/user/cart/${product._id}`,
+        `/api/user/cart/${productId}`,
         {
           action: {
             type: "increment",

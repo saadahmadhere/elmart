@@ -11,7 +11,7 @@ const CardHorizontal = ({ product }) => {
 
   const itemQuantityHandler = (e) => {
     changeItemQuantity(
-      product,
+      product._id,
       userState.token,
       dispatchUserState,
       e.target.value
@@ -19,11 +19,11 @@ const CardHorizontal = ({ product }) => {
   };
 
   const removeCartItemHandler = () => {
-    removeFromCart(product, userState.token, dispatchUserState);
+    removeFromCart(product._id, userState.token, dispatchUserState);
   };
 
   const addToWishListHandler = () => {
-    removeFromCart(product, userState.token, dispatchUserState);
+    removeFromCart(product._id, userState.token, dispatchUserState);
     !inWishlist(product._id) &&
       addToWishlist(product, userState.token, dispatchUserState);
   };

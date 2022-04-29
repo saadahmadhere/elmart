@@ -23,7 +23,7 @@ const Card = ({ product }) => {
   };
 
   const removeFromWishlistHandler = () => {
-    removeFromWishlist(product, userState.token, dispatchUserState);
+    removeFromWishlist(product._id, userState.token, dispatchUserState);
   };
 
   return (
