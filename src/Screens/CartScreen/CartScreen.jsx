@@ -1,5 +1,4 @@
 import "./CartScreen.css";
-import { useState, useEffect } from "react";
 import { CardHorizontal, CheckOutDetails } from "../../Components";
 import { EmptyCart } from "../";
 import { useAuth } from "../../Helper";
@@ -11,15 +10,11 @@ const CartScreen = () => {
     },
   } = useAuth();
 
-  const [totalPrice, setTotalPrice] = useState(0);
-  const [totalItems, setTotalItems] = useState(0);
-
-  useEffect(() => {
-    setTotalPrice(
-      cart.reduce((acc, sum) => acc + Number(sum.price * sum.qty), 0)
-    );
-    setTotalItems(cart.reduce((acc, item) => acc + Number(item.qty), 0));
-  }, [cart]);
+  const totalPrice = cart.reduce(
+    (acc, sum) => acc + Number(sum.price * sum.qty),
+    0
+  );
+  const totalItems = cart.reduce((acc, item) => acc + Number(item.qty), 0);
 
   return (
     <main className="main">
