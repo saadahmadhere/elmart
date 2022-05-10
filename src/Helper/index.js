@@ -13,3 +13,5 @@ export {
   changeItemQuantity,
   getProduct,
 } from "./Services/server-request";
+
+export { Loader } from "./Loader/Loader";

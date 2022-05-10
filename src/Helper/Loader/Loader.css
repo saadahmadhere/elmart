@@ -1,0 +1,10 @@
+.loader {
+  min-height: 5.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader > * {
+  color: gray;
+}
