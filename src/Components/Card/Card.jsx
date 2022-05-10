@@ -36,13 +36,15 @@ const Card = ({ product }) => {
             </div>
           </div>
         )}
-        <div className="img_card">
-          <img
-            src={product.image}
-            alt={product.name}
-            style={{ objectFit: "contain" }}
-          />
-        </div>
+        <Link to={`/singleProduct/${product._id}`}>
+          <div className="img_card">
+            <img
+              src={product.image}
+              alt={product.name}
+              style={{ objectFit: "contain" }}
+            />
+          </div>
+        </Link>
         <div className="heading_card">
           <h4 className="h4 gray_title mb_2">{product.name}</h4>
           <h5 className="h5 gray_subtitle mb_4">{product.brand}</h5>
