@@ -1,0 +1,23 @@
+.card_single_product {
+  margin: var(--size-4) auto;
+  width: 80%;
+  height: 80vh;
+  overflow: auto;
+  flex-direction: column;
+}
+
+.image_single_product {
+  min-width: 50%;
+}
+
+.single_product_description .action_buttons > * {
+  margin: var(--size-3) auto;
+  width: 100%;
+}
+
+@media only screen and (min-width: 769px) {
+  .card_single_product {
+    margin: var(--size-12) auto;
+    flex-direction: row;
+  }
+}

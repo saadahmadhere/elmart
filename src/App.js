@@ -5,6 +5,7 @@ import {
   ProductScreen,
   Login,
   SignUp,
+  SingleProduct,
 } from "./Screens";
 import { Footer, Navbar, RequiresAuth } from "./Components";
 import { Route, Routes } from "react-router-dom";
@@ -23,7 +24,7 @@ const App = () => {
             </RequiresAuth>
           }
         />
-
+        <Route path="/singleProduct/:id" element={<SingleProduct />} />
         <Route
           path="/wishlist"
           element={

@@ -6,3 +6,4 @@ export { WishlistScreen } from "./Wishlist/WishlistScreen";
 export { EmptyWishlist } from "./Empty Wishlist/EmptyWishlist";
 export { Login } from "./Login Screen/Login";
 export { SignUp } from "./SignUp/SignUp";
+export { SingleProduct } from "./Single Product/SingleProduct";

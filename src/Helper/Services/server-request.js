@@ -125,6 +125,20 @@ const changeItemQuantity = async (productId, token, dispatch, quantity) => {
   }
 };
 
+const getProduct = (productId, setLoading, setProduct) => {
+  (async () => {
+    try {
+      setLoading(true);
+      const res = await axios.get(`/api/products/${productId}`);
+      setProduct(res.data.product);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  })();
+};
+
 export {
   login,
   signup,
@@ -133,4 +147,5 @@ export {
   addToWishlist,
   removeFromWishlist,
   changeItemQuantity,
+  getProduct,
 };

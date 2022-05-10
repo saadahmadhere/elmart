@@ -11,4 +11,7 @@ export {
   addToWishlist,
   removeFromWishlist,
   changeItemQuantity,
+  getProduct,
 } from "./Services/server-request";
+
+export { Loader } from "./Loader/Loader";
