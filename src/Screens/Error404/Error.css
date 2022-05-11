@@ -1,0 +1,12 @@
+.error {
+  min-height: calc(100vh - 5.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error > img {
+  height: 18.75rem;
+  width: 18.75rem;
+}

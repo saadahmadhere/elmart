@@ -1,35 +1,26 @@
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./CategoryItem.css";
-import { useData } from "../../Helper/";
-import { useFilter } from "../../Helper";
+import { useFilter, Loader } from "../../Helper";
 
 const CategoryItem = () => {
   const navigate = useNavigate();
-
-  const {
-    state: { categories },
-    dispatch,
-  } = useData();
-
+  const [categories, setCategories] = useState([]);
+  const [loader, setLoader] = useState(false);
   const { filterDispatch } = useFilter();
 
   const fetchCategories = async () => {
     try {
+      setLoader(true);
       const categoriesData = await axios.get("/api/categories");
       if (categoriesData.status === 200) {
-        dispatch({
-          type: "CATEGORIES",
-          payload: categoriesData.data.categories,
-        });
+        setCategories(categoriesData.data.categories);
       }
     } catch (error) {
-      dispatch({
-        type: "CATEGORIES",
-        payload: null,
-      });
       console.error(error);
+    } finally {
+      setLoader(false);
     }
   };
 
@@ -39,10 +30,10 @@ const CategoryItem = () => {
 
   return (
     <div className="category_items flex">
-      {categories === null ? (
-        <h2 style={{ color: "red" }}>Problem loading categories ...</h2>
+      {loader ? (
+        <Loader />
       ) : (
-        categories.map((categoryItem) => (
+        categories?.map((categoryItem) => (
           <div
             className="category_product"
             key={categoryItem._id}
