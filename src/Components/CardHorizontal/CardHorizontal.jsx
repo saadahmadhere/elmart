@@ -2,6 +2,7 @@ import {
   useAuth,
   removeFromCart,
   addToWishlist,
+  removeFromWishlist,
   changeItemQuantity,
 } from "../../Helper";
 import "./CardHorizontal.css";
@@ -26,6 +27,10 @@ const CardHorizontal = ({ product }) => {
     removeFromCart(product._id, userState.token, dispatchUserState);
     !inWishlist(product._id) &&
       addToWishlist(product, userState.token, dispatchUserState);
+  };
+
+  const removeFromWishlistHandler = () => {
+    removeFromWishlist(product._id, userState.token, dispatchUserState);
   };
 
   return (
@@ -62,11 +67,21 @@ const CardHorizontal = ({ product }) => {
             </button>
           </div>
           <div className="action_icons">
-            <button onClick={() => addToWishListHandler()}>
-              <span className="material-icons outlined icon">
-                favorite_border
-              </span>
-            </button>
+            {!inWishlist(product._id) ? (
+              <button onClick={() => addToWishListHandler()}>
+                <span className="material-icons outlined icon">
+                  favorite_border
+                </span>
+              </button>
+            ) : (
+              <button onClick={() => removeFromWishlistHandler()}>
+                <span
+                  className="material-icons outlined icon"
+                  style={{ color: "red" }}>
+                  favorite
+                </span>
+              </button>
+            )}
           </div>
         </div>
       </div>
