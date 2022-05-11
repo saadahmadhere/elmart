@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { Rating } from "./Rating";
 import {
   useAuth,
@@ -10,9 +11,11 @@ import {
 const Card = ({ product }) => {
   const navigate = useNavigate();
   const { userState, dispatchUserState, inWishlist, inCart } = useAuth();
+  const [loader, setLoader] = useState(false);
+
   const addToCartHandler = () => {
     userState.token
-      ? addToCart(product, userState.token, dispatchUserState)
+      ? addToCart(product, userState.token, dispatchUserState, setLoader)
       : navigate("/login");
   };
 
@@ -65,7 +68,13 @@ const Card = ({ product }) => {
             <button
               onClick={() => addToCartHandler()}
               className="btn btn_primary btn_sm">
-              <span className="material-icons outlined">add_shopping_cart</span>
+              {loader ? (
+                <i className="fas fa-spinner fa-spin mr_1"></i>
+              ) : (
+                <span className="material-icons outlined">
+                  add_shopping_cart
+                </span>
+              )}
               Add to Cart
             </button>
           ) : (

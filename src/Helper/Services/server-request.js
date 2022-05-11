@@ -48,8 +48,9 @@ const login = async (
   }
 };
 
-const addToCart = async (product, token, dispatch) => {
+const addToCart = async (product, token, dispatch, setLoader) => {
   try {
+    setLoader(true);
     const res = await axios.post(
       "/api/user/cart",
       { product },
@@ -58,6 +59,8 @@ const addToCart = async (product, token, dispatch) => {
     dispatch({ type: "ADD_TO_CART", payload: res.data.cart });
   } catch (error) {
     console.error(error);
+  } finally {
+    setLoader(false);
   }
 };
 
