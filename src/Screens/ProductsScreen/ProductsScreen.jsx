@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Card } from "../../Components";
-import { useFilter } from "../../Helper";
+import { useFilter, Loader } from "../../Helper";
 import { useState, useEffect } from "react";
 import { Filters } from "../../Components";
 
@@ -26,7 +26,7 @@ const ProductScreen = () => {
 
   return (
     <div className="main_filter">
-      {loader ? <h1 style={{ fontSize: "20rem" }}>loading</h1> : null}
+      {loader ? <Loader /> : null}
       <Filters />
       <section className="products mt_10">
         <div
